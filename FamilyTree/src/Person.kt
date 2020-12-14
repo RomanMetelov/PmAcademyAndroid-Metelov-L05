@@ -9,25 +9,31 @@ class Person(
         return false
     }
 
+    override fun toString(): String {
+        return this.name
+    }
+
     var amountOfAllRelatives = 0
     var listOfRelatives: MutableList<Person> = mutableListOf<Person>()
 
-    fun countAmountOfAllRelatives() {
-        var total: Int = 0
+    fun createListRelativesOf(person: Person) {
+        //tree traversal, form a list of all relatives and counting of them
         this.mother?.let {
-            amountOfAllRelatives++
-            it.countAmountOfAllRelatives()
+            person.listOfRelatives.add(it)
+            person.amountOfAllRelatives++
+            it.createListRelativesOf(person)
         }
         this.father?.let {
-            amountOfAllRelatives++
-            it.countAmountOfAllRelatives()
+            person.listOfRelatives.add(it)
+            person.amountOfAllRelatives++
+            it.createListRelativesOf(person)
         }
         this.siblings?.let {
             it.forEach {
-                amountOfAllRelatives++
-                it.countAmountOfAllRelatives()
+                person.listOfRelatives.add(it)
+                person.amountOfAllRelatives++
+                it.createListRelativesOf(person)
             }
         }
     }
 }
-

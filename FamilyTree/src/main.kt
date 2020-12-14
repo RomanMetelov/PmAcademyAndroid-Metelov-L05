@@ -1,6 +1,7 @@
 fun main() {
-    val roman: Person = getMe()
-    println(roman)
+    val me: Person = getMe()
+    me.createListRelativesOf(me)
+    println("I have ${me.amountOfAllRelatives} relatives: ${me.listOfRelatives.joinToString(postfix = ".")}")
 }
 
 fun getMe(): Person {
@@ -26,4 +27,3 @@ fun getMe(): Person {
 
     return me
 }
-
