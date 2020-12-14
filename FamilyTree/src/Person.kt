@@ -9,8 +9,25 @@ class Person(
         return false
     }
 
-    fun amountOfRelatives(): Int? {
-        return 0
-    }
+    var amountOfAllRelatives = 0
+    var listOfRelatives: MutableList<Person> = mutableListOf<Person>()
 
+    fun countAmountOfAllRelatives() {
+        var total: Int = 0
+        this.mother?.let {
+            amountOfAllRelatives++
+            it.countAmountOfAllRelatives()
+        }
+        this.father?.let {
+            amountOfAllRelatives++
+            it.countAmountOfAllRelatives()
+        }
+        this.siblings?.let {
+            it.forEach {
+                amountOfAllRelatives++
+                it.countAmountOfAllRelatives()
+            }
+        }
+    }
 }
+

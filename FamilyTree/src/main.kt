@@ -1,5 +1,6 @@
 fun main() {
-    println(getMe().amountOfRelatives())
+    val roman: Person = getMe()
+    println(roman)
 }
 
 fun getMe(): Person {
@@ -21,6 +22,8 @@ fun getMe(): Person {
 
     me.father!!.mother!!.father = Person("Valentyn", 99)
 
+    me.father!!.father!!.siblings = arrayOf(Person("Toma", 81))
 
     return me
 }
+
