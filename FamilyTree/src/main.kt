@@ -15,8 +15,8 @@ fun getMe(): Person {
     me.mother!!.father = Person("Vladlen", 76)
     me.mother!!.siblings = arrayOf(Person("Vasyl", 49))
 
-    me.father!!.mother = Person("Volodymyr", 74)
-    me.father!!.father = Person("Tamara", 73)
+    me.father!!.mother = Person("Tamara", 74)
+    me.father!!.father = Person("Volodymyr", 73)
     me.father!!.siblings = arrayOf(Person("Taras", 49))
 
     me.mother!!.mother!!.siblings = arrayOf(Person("Viktor", 82))
